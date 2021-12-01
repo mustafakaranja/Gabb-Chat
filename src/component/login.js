@@ -1,70 +1,87 @@
 import React, { Component } from "react";
 import { auth, database } from "firebase";
-import { Flex, Box, Button, Image, Text, Alert, AlertIcon } from "@chakra-ui/core";
-
+import { FcGoogle } from "react-icons/fc";
+import {
+  Flex,
+  Box,
+  Button,
+  Image,
+  Text,
+  Alert,
+  AlertIcon,
+} from "@chakra-ui/core";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: false,
-      errorMessage: ""
-    }
+      errorMessage: "",
+    };
   }
-  loginWithGmail = e => {
+  loginWithGmail = (e) => {
     e.preventDefault();
     let provider = new auth.GoogleAuthProvider();
     auth()
       .signInWithPopup(provider)
-      .then(result => {
+      .then((result) => {
         let additionalUserInfo = result.additionalUserInfo;
         let user = {
           userName: result.additionalUserInfo.profile.given_name,
           profile_picture: result.user.photoURL,
           fullName: result.user.displayName,
           email: result.user.email,
-          uid: result.user.uid
-        }
+          uid: result.user.uid,
+        };
         if (additionalUserInfo.isNewUser) {
           this.addUserList(result);
           this.props.isLogin(user);
         } else {
-          let userRef = database().ref().child("usersTable").child(result.user.uid);
-          userRef.once("value", snapshot => {
+          let userRef = database()
+            .ref()
+            .child("usersTable")
+            .child(result.user.uid);
+          userRef.once("value", (snapshot) => {
             var isAvailable = snapshot.val();
             if (!isAvailable) {
               this.addUserList(result);
             } else {
-              userRef.update({ profile_picture: result.user.photoURL, uid: result.user.uid });
+              userRef.update({
+                profile_picture: result.user.photoURL,
+                uid: result.user.uid,
+              });
             }
           });
           this.props.isLogin(user);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         var errorMessage = error.message;
-        this.setState({ error: true, errorMessage })
+        this.setState({ error: true, errorMessage });
       });
   };
 
-  addUserList = result => {
-    database()
-      .ref()
-      .child("usersTable")
-      .child(result.user.uid)
-      .set({
-        userName: result.additionalUserInfo.profile.given_name,
-        profile_picture: result.user.photoURL,
-        fullName: result.user.displayName,
-        email: result.user.email,
-        uid: result.user.uid
-      });
+  addUserList = (result) => {
+    database().ref().child("usersTable").child(result.user.uid).set({
+      userName: result.additionalUserInfo.profile.given_name,
+      profile_picture: result.user.photoURL,
+      fullName: result.user.displayName,
+      email: result.user.email,
+      uid: result.user.uid,
+    });
   };
 
   render() {
     return (
       <React.Fragment>
-        <Flex bg="gray.200" flexDirection="column" justifyContent="center" alignItems="center" textAlign="center" h="100vh">
+        <Flex
+          bg="gray.200"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+          h="100vh"
+        >
           <Alert
             status="error"
             marginBottom={10}
@@ -82,28 +99,26 @@ class Login extends Component {
             padding="50px"
             shadow="md"
             rounded="md"
+            style={{ paddingLeft: "unset", paddingRight: "unset" }}
           >
             <Image
-              src="/cat.png"
+              src="/Assets/logo/gab_login_logo.png"
               alt="logo"
+              style={{ width: "50%" }}
             />
-            <Text marginTop={2} fontWeight={600} fontSize="2.5rem" color="orange.300">
-              Cat Chat
-            </Text>
             <Button
               onClick={this.loginWithGmail}
               variantColor="teal"
               size="lg"
               marginTop={5}
+              style={{ backgroundColor: "#5AD8D6", borderRadius: 30 }}
             >
-              <Image
-                src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png"
-                alt="signin-google"
-              />
+              <FcGoogle style={{ marginRight: 10, fontSize: 35 }} /> Sign-in
+              with Google
             </Button>
           </Box>
         </Flex>
-      </React.Fragment >
+      </React.Fragment>
     );
   }
 }

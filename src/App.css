@@ -1,24 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis|Itim');
-body{
+@import url("https://fonts.googleapis.com/css?family=Dosis|Itim");
+body {
   margin: 0px auto;
-  font-family: 'Dosis', sans-serif;
-  background: linear-gradient( rgba(38, 132, 156, 0.15) 100%, rgb(102, 199, 140)100%),url(/splash.png);
+  font-family: "Dosis", sans-serif;
+  background: linear-gradient(
+      rgba(38, 132, 156, 0.15) 100%,
+      rgb(102, 199, 140) 100%
+    ),
+    url(/splash.png);
   background-size: cover;
 }
-.main__container{
+.main__container {
   margin: 2em auto;
   width: 68%;
   height: 90vh;
   position: relative;
 }
-.wrapper{
+.wrapper {
   display: flex;
   flex-wrap: wrap;
 }
-.left__section{
+.left__section {
   height: 90vh;
   flex: 1;
-  background: #FFF;
+  background: #fff;
   border-right: 1px solid #0000000d;
   transition: 0.8s all;
   border-radius: 5px 0px 0px 5px;
@@ -28,20 +32,20 @@ body{
   overflow-x: hidden;
 }
 .left__section::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
-.right__section{
+.right__section {
   height: 90vh;
   flex: 3;
   background-color: rgb(247, 244, 244);
   position: relative;
   padding-left: 15px;
-  background: #C9D6FF;
-  background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
-  background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+  background: #c9d6ff;
+  background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff);
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
   border-radius: 0px 0px 3px 0px;
 }
-.message__type__box{
+.message__type__box {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -49,9 +53,9 @@ body{
   overflow: hidden;
   background-color: #fff;
   border-radius: 0px 0px 3px 0px;
-  border-top: 1px solid #E91E63;
+  border-top: 1px solid #e91e63;
 }
-.message__type__box > textarea{
+.message__type__box > textarea {
   height: 55px;
   width: 100%;
   margin: 0px;
@@ -59,14 +63,14 @@ body{
   box-sizing: border-box;
   border: 0px solid #ccc;
   border-radius: 0px;
-  background-color: #FFF;
+  background-color: #fff;
   resize: none;
   float: left;
   box-shadow: none;
   line-height: 26px;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
-.message__type__box > input{
+.message__type__box > input {
   height: 55px;
   width: 100%;
   margin: 0px;
@@ -74,22 +78,22 @@ body{
   box-sizing: border-box;
   border: 0px solid #ccc;
   border-radius: 0px;
-  background-color: #FFF;
+  background-color: #fff;
   resize: none;
   float: left;
   box-shadow: none;
   line-height: 26px;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
-.message__type__box > input:focus{
+.message__type__box > input:focus {
   border: 0px solid #fff;
   outline: none;
 }
-.message__type__box > textarea:focus{
-  border: 0px solid #607D8B;
+.message__type__box > textarea:focus {
+  border: 0px solid #607d8b;
   outline: none;
 }
-.message__type__box > button{
+.message__type__box > button {
   position: absolute;
   right: 6px;
   top: 13px;
@@ -99,10 +103,10 @@ body{
   text-transform: uppercase;
   border-radius: 4px;
   cursor: pointer;
-  font-family: 'Itim', cursive;
-  color: #E91E63;
+  font-family: "Itim", cursive;
+  color: #e91e63;
 }
-.message__type__box .emojiIcon{
+.message__type__box .emojiIcon {
   position: absolute;
   top: 1px;
   right: 46px;
@@ -110,48 +114,48 @@ body{
   cursor: pointer;
   color: #333;
 }
-.message__type__box .emojiIcon:hover{
+.message__type__box .emojiIcon:hover {
   color: red;
 }
-.openNav{
+.openNav {
   display: none;
   cursor: pointer;
-  float: right; 
+  float: right;
   margin-right: 20px;
   margin-top: 10px;
 }
-.closeNav{
+.closeNav {
   display: block;
   cursor: pointer;
-  float: right; 
+  float: right;
   margin-right: 20px;
   margin-top: 10px;
 }
-.userList{
-  padding-top:35px;
+.userList {
+  padding-top: 35px;
   padding-left: 15px;
   display: inline-grid;
 }
-.userList a{
+.userList a {
   border-bottom: 1px solid #ff000012;
   float: left;
   padding: 8px 0px;
-  font-family: 'Itim', cursive;
+  font-family: "Itim", cursive;
   cursor: pointer;
   position: relative;
 }
-.userList img{
+.userList img {
   border-radius: 50%;
   float: left;
   margin-right: 5px;
 }
-.userList span{
+.userList span {
   text-transform: capitalize;
   padding-top: 10px;
   float: left;
   color: #e91e63bd;
 }
-.userList .notify{
+.userList .notify {
   position: absolute;
   border: 0px solid;
   background: #ea4763de;
@@ -164,101 +168,98 @@ body{
   left: 0px;
   top: 0px;
 }
-.message__box{
+.message__box {
   height: 80vh;
   overflow: scroll;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 .message__box::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
-.msg__text{
+.msg__text {
   display: flex;
   padding-right: 12px;
-    padding-top: 12px;
+  padding-top: 12px;
 }
-.msg__text img{
+.msg__text img {
   margin-right: 10px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-.msg__text span{
+.msg__text span {
   background-color: #fff;
   padding: 5px 10px;
   margin-top: 10px;
   border-radius: 1px 10px 10px 15px;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   box-shadow: 0px -4px 41px -12px rgba(0, 0, 0, 0.39);
   min-width: 185px;
   word-break: break-all;
 }
-.msg__text__right{
+.msg__text__right {
   display: flex;
   padding-right: 12px;
   padding-top: 12px;
-  flex-flow: row-reverse;  	
+  flex-flow: row-reverse;
 }
-.msg__text__right img{
+.msg__text__right img {
   margin-left: 10px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-.msg__text__right span{
+.msg__text__right span {
   background-color: #fbeaef;
   padding: 5px 10px;
   margin-top: 10px;
   border-radius: 10px 1px 10px 15px;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   box-shadow: 0px -4px 41px -12px rgba(0, 0, 0, 0.39);
   min-width: 185px;
 }
 
-
 /* emoji */
-.emoji{
-    position: absolute;
-    background: rgb(255, 255, 255);
-    font-size: 22px;
-    bottom: 56px;
-    right: 0%;
-    width: 45%;
-    height: 200px;
-    padding: 7px 10px;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    overflow-y: scroll;
-    z-index: 9999999;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    box-shadow: 0px 0px 20px 4px rgba(0,0,0,.12);
-    display: none;
+.emoji {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  font-size: 22px;
+  bottom: 56px;
+  right: 0%;
+  width: 45%;
+  height: 200px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  overflow-y: scroll;
+  z-index: 9999999;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.12);
+  display: none;
 }
-.emoji a{
+.emoji a {
   cursor: pointer;
-  color:#000;
+  color: #000;
 }
-.emoji a:hover{
+.emoji a:hover {
   text-decoration: none;
-  color: #E91E63;
+  color: #e91e63;
 }
-
 
 /* signout */
-.signout{
+.signout {
   position: absolute;
   bottom: 7px;
   left: 25px;
   padding: 5px 16px;
   border: 0px;
-  background: #E91E63;
+  background: #e91e63;
   color: #fff;
   border-radius: 3px;
 }
-
 
 /* Spinner */
 .spinner {
@@ -273,9 +274,9 @@ body{
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  background: rgba(0,0,0,1);
+  background: rgba(0, 0, 0, 1);
 }
- 
+
 .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
@@ -287,34 +288,34 @@ body{
 }
 
 @media only screen and (max-width: 768px) {
-  .main__container{
+  .main__container {
     margin: 0em auto;
     width: 100%;
     height: 100vh;
   }
-  .wrapper{
+  .wrapper {
     display: flex;
     flex-wrap: nowrap;
   }
-  .left__section{
+  .left__section {
     height: 100vh;
     min-width: 40%;
     -webkit-transition: 0.4s all;
     -o-transition: 0.4s all;
     transition: 0.4s all;
   }
-  .right__section{
+  .right__section {
     height: 100vh;
     min-width: 60%;
   }
-  .openNav{
+  .openNav {
     margin-right: -10px;
     margin-top: 0px;
-    background: #FFF;
+    background: #fff;
     position: absolute;
     left: 0;
     z-index: 111111;
     padding: 5px 10px;
-    color: #E91E63;
+    color: #e91e63;
   }
-} 
+}
